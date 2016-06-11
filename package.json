@@ -1,0 +1,41 @@
+{
+  "name": "redux-study",
+  "version": "0.0.1",
+  "description": "Project for studying Redux. ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register",
+    "test:watch": "npm test -- --watch"
+  },
+  "author": "Ryosuke Goto",
+  "license": "MIT",
+  "dependencies": {
+    "babel-polyfill": "^6.9.1",
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "redux-logger": "^2.6.1",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-eslint": "^6.0.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-react-hmre": "^1.1.1",
+    "eslint": "^2.11.1",
+    "eslint-config-rackt": "^1.1.1",
+    "eslint-plugin-react": "^5.1.1",
+    "expect": "^1.20.1",
+    "express": "^4.13.4",
+    "jsdom": "^9.2.1",
+    "node-libs-browser": "^1.0.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0"
+  }
+}
