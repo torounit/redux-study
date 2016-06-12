@@ -6,13 +6,17 @@
   "scripts": {
     "start": "node server.js",
     "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "coverage": "babel-node $(npm bin)/isparta cover --verbose --report text --report html $(npm bin)/_mocha -- --recursive",
+    "lint": "eslint actions constants containers reducers test",
+    "check:src": "npm run lint && npm run test"
   },
   "author": "Ryosuke Goto",
   "license": "MIT",
   "dependencies": {
     "babel-polyfill": "^6.9.1",
     "isomorphic-fetch": "^2.2.1",
+    "node-uuid": "^1.4.7",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-redux": "^4.4.5",
@@ -21,6 +25,7 @@
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.10.1",
     "babel-core": "^6.9.1",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.4",
@@ -32,7 +37,9 @@
     "eslint-plugin-react": "^5.1.1",
     "expect": "^1.20.1",
     "express": "^4.13.4",
+    "isparta": "^4.0.0",
     "jsdom": "^9.2.1",
+    "mocha": "^2.5.3",
     "node-libs-browser": "^1.0.0",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",
