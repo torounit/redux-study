@@ -23,7 +23,18 @@ module.exports = {
         loaders: ['babel'],
         exclude: /node_modules/,
         include: __dirname
+      },
+      {
+        test: /\.styl$/,
+        loader: "style-loader!css-loader!stylus-loader"
+      },
+      {
+        test: /\.png$/,
+        loader: "file"
       }
-    ]
+    ],
+    resolve: {
+      extensions: ['', '.js', '.styl']
+    }
   }
 }

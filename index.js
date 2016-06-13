@@ -1,3 +1,5 @@
+import "./stylus/main.styl"
+
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
@@ -7,7 +9,6 @@ import { loadState, saveState } from './api/localStorage'
 
 const persistedState = loadState()
 const store = configureStore(persistedState)
-console.log(store.getState().notes)
 
 // Listen state change and save it to localStorage
 store.subscribe( () => {
