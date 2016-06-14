@@ -1,5 +1,4 @@
 import {ADD_NOTE, EDIT_NOTE, DELETE_NOTE} from '../constants/ActionTypes.js'
-import uuid from 'node-uuid'
 
 const initialState  = []
 
@@ -8,7 +7,7 @@ const notes = (state = initialState, action) => {
     case ADD_NOTE:
       return [
         {
-          id: uuid.v4(),
+          id: action.id,
           text: action.text
         },
         ...state

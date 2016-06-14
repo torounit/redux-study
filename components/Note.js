@@ -37,7 +37,9 @@ class Note extends Component {
       element = (
         <div className="view">
           <label onDoubleClick={this.handleDoubleClick.bind(this)}>
-            {note.text}
+            {note.text.split('\n').map( item => {
+              return (<span> {item} <br/> </span>)
+            })}
           </label>
           <button className="destroy"
                   onClick={() => deleteNote(note.id)} />

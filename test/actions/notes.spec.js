@@ -4,9 +4,10 @@ import * as types from '../../constants/ActionTypes.js'
 
 describe('note actions', () => {
   it('addNote should create ADD_NOTE action', () => {
-    expect(actions.addNote('Use Redux')).toEqual({
+    expect(actions.addNote('Use Redux')).toMatch({
       type: types.ADD_NOTE,
-      text: 'Use Redux'
+      text: 'Use Redux',
+      id: /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/
     })
   })
 

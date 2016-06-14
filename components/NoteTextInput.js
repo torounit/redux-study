@@ -9,13 +9,24 @@ class NoteTextInput extends Component {
     }
   }
 
-  handleSubmit(e) {
+  handleKeyDown(e) {
     const text = e.target.value.trim()
     if (e.which === 13) {
       this.props.onSave(text)
       if (this.props.newNote) {
         this.setState({ text: '' })
       }
+    }
+  }
+
+  handleSubmit(e) {
+    const text = this.refs.input.value.trim()
+    if (!text) {
+      return
+    }
+    this.props.onSave(text)
+    if (this.props.newNote) {
+      this.setState({ text: '' })
     }
   }
 
@@ -30,19 +41,22 @@ class NoteTextInput extends Component {
   }
 
   render() {
+    let input
     return (
-      <input className={
-        classnames({
-          edit: this.props.editing,
-          'new-note': this.props.newNote
-        })}
-        type="text"
-        placeholder={this.props.placeholder}
-        autoFocus="true"
-        value={this.state.text}
-        onBlur={this.handleBlur.bind(this)}
-        onChange={this.handleChange.bind(this)}
-        onKeyDown={this.handleSubmit.bind(this)} />
+      <div>
+        <textarea className={
+          classnames({
+            edit: this.props.editing,
+            'new-note': this.props.newNote
+          })}
+          placeholder={this.props.placeholder}
+          autoFocus="true"
+          ref = "input"
+          value={this.state.text}
+          onBlur={this.handleBlur.bind(this)}
+          onChange={this.handleChange.bind(this)} />
+        <button onClick={this.handleSubmit.bind(this)}>Save</button>
+      </div>
     )
   }
 }

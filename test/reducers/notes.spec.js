@@ -14,35 +14,66 @@ describe('notes reducer', () => {
       notes([], {
         type: types.ADD_NOTE,
         text: 'Run the test.',
-      })[0]
-    ).toMatch(
-      {
-        "text": /Run the test/,
-        "id": /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/
-      }
-    )
-
-    let [a, b] = notes([
+        id: 0
+      })
+    ).toEqual([
       {
         text: 'Run the test.',
         id: 0
-      }], {
+      }
+    ])
+
+    expect(
+      notes([
+        {
+          text: 'Run the test.',
+          id: 0
+        }
+      ], {
         type: types.ADD_NOTE,
         text: 'Use Redux',
+        id: 1
       })
-
-    expect(a).toMatch(
+    ).toEqual([
       {
-        "text": /Use Redux/,
-        "id": /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/
-      }
-    )
-    expect(b).toEqual(
+        text: 'Use Redux',
+        id: 1
+      },
       {
         text: 'Run the test.',
         id: 0
       }
-    )
+    ])
+
+    expect(
+      notes([
+        {
+          text: 'Use Redux.',
+          id: 1
+        },
+        {
+          text: 'Run the test.',
+          id: 0
+        }
+      ], {
+        type: types.ADD_NOTE,
+        text: 'Fix the test.',
+        id: 2
+      })
+    ).toEqual([
+      {
+        text: 'Fix the test.',
+        id: 2
+      },
+      {
+        text: 'Use Redux.',
+        id: 1
+      },
+      {
+        text: 'Run the test.',
+        id: 0
+      }
+    ])
   })
 
   it('should handle DELETE_NOTE', () => {
