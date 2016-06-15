@@ -37,8 +37,8 @@ class Note extends Component {
       element = (
         <div className="view">
           <label onDoubleClick={this.handleDoubleClick.bind(this)}>
-            {note.text.split('\n').map( item => {
-              return (<span> {item} <br/> </span>)
+            {note.text.split('\n').map((item, itemindex) => {
+              return (<span key={itemindex}> {item} <br/> </span>)
             })}
           </label>
           <button className="destroy"
@@ -50,7 +50,7 @@ class Note extends Component {
     return (
       <li className={classnames({
         editing: this.state.editing
-      })}>
+      })} >
         {element}
       </li>
     )

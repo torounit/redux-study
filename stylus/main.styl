@@ -13,19 +13,18 @@ body
   width 90%
   margin 0 auto
 
-label
+label, textarea
   background white
   width 100%
   padding 2%
   display block
-  border-radius 2px
+  min-height 5em
+  font-size 1em
+  outline none
+  border none
 
-textarea
-  width 100%
-  padding 2%
-  display block
-  border 1px solid #bce09f
-  border-radius 2px
+  &:focus
+    border 1px solid #bce09f
 
 ul
   padding 0
