@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register",
+    "test": "cross-env NODE_ENV=test mocha --recursive -r mock-local-storage --compilers js:babel-register",
     "test:watch": "npm test -- --watch",
-    "coverage": "babel-node $(npm bin)/isparta cover --report text --report html --include-all-sources -x server.js mocha -- --recursive --compilers js:babel-register",
+    "coverage": "babel-node $(npm bin)/isparta cover --report text --report html node_modules/mocha/bin/_mocha -- --recursive -r mock-local-storage",
     "lint": "eslint actions constants containers reducers test",
     "check:src": "npm run lint && npm run test"
   },
@@ -44,6 +44,7 @@
     "isparta": "^4.0.0",
     "jsdom": "^9.2.1",
     "mocha": "^2.5.3",
+    "mock-local-storage": "^1.0.2",
     "node-libs-browser": "^1.0.0",
     "sinon": "^1.17.4",
     "style-loader": "^0.13.1",
