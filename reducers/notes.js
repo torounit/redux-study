@@ -1,4 +1,4 @@
-import {ADD_NOTE, EDIT_NOTE, DELETE_NOTE} from '../constants/ActionTypes.js'
+import { ADD_NOTE, EDIT_NOTE, DELETE_NOTE } from '../constants/ActionTypes.js'
 
 const initialState  = []
 
@@ -21,7 +21,7 @@ const notes = (state = initialState, action) => {
     case EDIT_NOTE:
       return state.map( note =>
         note.id === action.id ?
-          Object.assign({}, note, {text: action.text}) :
+          Object.assign({}, note, { text: action.text }) :
           note
       )
 

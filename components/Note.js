@@ -60,7 +60,7 @@ class Note extends Component {
 Note.propTypes = {
   note: PropTypes.object.isRequired,
   editNote: PropTypes.func.isRequired,
-  deleteNote: PropTypes.func.isRequired,
+  deleteNote: PropTypes.func.isRequired
 }
 
 export default Note

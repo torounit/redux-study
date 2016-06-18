@@ -19,7 +19,7 @@ class NoteTextInput extends Component {
     }
   }
 
-  handleSubmit(e) {
+  handleSubmit() {
     const text = this.refs.input.value.trim()
     if (!text) {
       return
@@ -41,7 +41,6 @@ class NoteTextInput extends Component {
   }
 
   render() {
-    let input
     return (
       <div>
         <textarea className={
