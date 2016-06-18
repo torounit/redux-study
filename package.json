@@ -7,7 +7,7 @@
     "start": "node server.js",
     "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register",
     "test:watch": "npm test -- --watch",
-    "coverage": "babel-node $(npm bin)/isparta cover --verbose --report text --report html node_modules/mocha/bin/_mocha -- --recursive",
+    "coverage": "babel-node $(npm bin)/isparta cover --report text --report html --include-all-sources -x server.js mocha -- --recursive --compilers js:babel-register",
     "lint": "eslint actions constants containers reducers test",
     "check:src": "npm run lint && npm run test"
   },
